@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>초보농부 나만 믿어!</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href= "assets/favicon.ico">
+        <!-- Bootstrap icons-->
+        <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel="stylesheet" />
+        <link href="{{url_for('static', filename='css/highcharts.css')}}" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <script src="{{ url_for('static', filename='js/highcharts.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/highcharts-3d.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/exporting.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/export-data.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/accessibility.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/data.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/series-label.js')}}"></script>
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand">초보농부 나만 믿어!</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <form action="/"><input class="nav-link" type="submit" value="Home" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/about"><input class="nav-link" type="submit" value="About" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/market"><input class="nav-link" type="submit" value="Market" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/faq"><input class="nav-link" type="submit" value="FAQ" name="action"/></form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- 데이터 검색 -->
+            <section class="py-5 bg-light">
+                <div class="container px-5 my-5">
+                    <h2 class="display-4 fw-bolder mb-4">나의 토양과 기후에 맞는 작물을 찾아볼까요?</h2>
+                    <form action="/sensor">
+                        <button class="btn btn-lg btn-primary" type="submit" value="submit" name="action">센서값으로 작물 찾기!</button>
+                    </form>
+                    <br>
+                    <form action="/search" method="GET">
+                        <input type="number" name="sun" placeholder="일사량" required>
+                        <input type="number" name="temperature" placeholder="기온" required>
+                        <input type="number" name="humidity" placeholder="습도" required>
+                        <input type="number" name="CO2" placeholder="이산화탄소 농도" required>
+                        <input type="number" name="land_moist" placeholder="지습" required>
+                        <input type="submit" value="submit" name="action"/>
+                    </form>
+                </div>
+            </section>
+            <!-- 그라파나 Content-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">하드웨어 키트로 읽어들이는 값을 확인해보세요!</h1>
+                        <a class="lead fw-normal text-muted mb-0" href="http://13.209.132.177:3000/d/ntUGLLv4k/new-dashboard?orgId=1&from=now-6h&to=now">실시간 센서 데이터 확인</a>
+                    </div>
+                    <div class="container px-5 my-5">
+                        <div class="text-center mb-5 ">
+                            <div class="row gx-5">
+                                <iframe src="http://13.209.132.177:3000/d-solo/ntUGLLv4k/new-dashboard?orgId=1&from=1668662326637&to=1668663226637&theme=light&panelId=12" width="450" height="200" frameborder="0"></iframe>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; For Farmers 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+    </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>판매 채널</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static', filename='css/highmaps.css')}}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column">
+        <script src="{{url_for('static', filename='js/highmaps.js')}}"></script>
+        <script src="{{url_for('static', filename='js/exporting.js')}}"></script>
+        <script src="{{url_for('static', filename='js/offline-exporting.js')}}"></script>
+        <script src="{{url_for('static', filename='js/accessibility.js')}}"></script>
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand">초보농부 나만 믿어!</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <form action="/"><input class="nav-link" type="submit" value="Home" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/about"><input class="nav-link" type="submit" value="About" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/market"><input class="nav-link" type="submit" value="Market" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/faq"><input class="nav-link" type="submit" value="FAQ" name="action"/></form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- 도매시장 지도 -->
+            <section class="py-5" id="features">
+                <div class="text-center mb-5">
+                    <h1 class="fw-bolder">전국 농산물 도매시장 위치</h1>
+                    <p class="lead fw-normal text-muted mb-0">마우스 커서를 올리면, 정보를 확인하실 수 있습니다.</p>
+                </div>
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                    <!-- highcharts 추가 -->
+                    <div id="container"></div>
+                    <script src="{{url_for('static', filename='js/kor-market.js')}}"></script>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!-- 이커머스 판매채널 section-->
+            <section class="bg-light py-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="py-5 bg-light">
+                        <div class="container px-5 my-5">
+                            <div class="row gx-5 justify-content-center">
+                                <div class="col-lg-8 col-xl-6">
+                                    <div class="text-center">
+                                        <h2 class="fw-bolder">온라인 판매처</h2>
+                                        <p class="lead fw-normal text-muted mb-5">직접 온라인 판매자가 되어, 더욱 다양한 소비자들에게 다가갈 수 있습니다!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gx-5">
+                                <!-- 네이버 -->
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="{{url_for('static', filename='images/네이버.PNG')}}" height="200px">
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">네이버 스마트스토어</div>
+                                            <p class="card-text mb-0">
+                                                <ul class="list-unstyled mb-4">
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>국내 최대 포털 사이트로, 검색시 상품 노출이 가능</strong>
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>7개 풀필먼트 업체와 판매자들 간의 상호연결 서비스 제공</strong>
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>파워링크 광고를 통해 상품노출도 증가 가능</strong>
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>입점, 등록, 판매 수수료 무료</strong>
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                            <div class="d-grid" ><a class="btn btn-outline-primary" href="https://sell.smartstore.naver.com/?gclid=Cj0KCQiA37KbBhDgARIsAIzce16iwVYz225Pnol2uyhEoR8iRrNyVSbWw2WqWz-YiG7srp2aZgcJ6QoaAhwpEALw_wcB#/home/about">사이트로 이동</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 쿠팡 -->
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <div class="card h-100 shadow border-0">
+                                            <img class="card-img-top" src="{{url_for('static', filename='images/coupanglogo.png')}}" height="200px">
+                                            <div class="card-body p-4">
+                                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">쿠팡</div>
+                                                <p class="card-text mb-0">
+                                                    <ul class="list-unstyled mb-4">
+                                                        <li class="mb-2">
+                                                            <i class="bi bi-check text-primary"></i>
+                                                            <strong>국내 1위 소셜커머스. 모든 연령대, 모든 성별에서 가장 높은 사용자 기록</strong>
+                                                        </li>
+                                                        <li class="mb-2">
+                                                            <i class="bi bi-check text-primary"></i>
+                                                            <strong>24시간 배송 가능</strong>
+                                                        </li>
+                                                        <li class="mb-2">
+                                                            <i class="bi bi-check text-primary"></i>
+                                                            <strong>간편한 판매자 등록 프로세스(등록 5일안에 첫 매출 발생)</strong>
+                                                        </li>
+                                                        <li class="mb-2">
+                                                            <i class="bi bi-check text-primary"></i>
+                                                            <strong>타 채널 대비 낮은 식품 판매 수수료</strong>
+                                                        </li>
+                                                    </ul>
+                                                </p>
+                                                <div class="d-grid"><a class="btn btn-primary" href="https://marketplace.coupangcorp.com/s/?utm_source=google_sa_pc&utm_medium=paid&utm_campaign=go_sa_pc_br&gclid=Cj0KCQiA37KbBhDgARIsAIzce175EEhVSnLVCc51xuzN4sc1e-CziH6nYmMkP9HFQrQsD1yRSgp0EwAaApQXEALw_wcB">사이트로 이동</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 지마켓 -->
+                                <div class="col-lg-4 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img class="card-img-top" src="{{url_for('static', filename='images/gmarketlogo.png')}}" height="200px">
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">지마켓</div>
+                                            <p class="card-text mb-0">
+                                                <ul class="list-unstyled mb-4">
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>국내 소셜커머스 기업중 3위의 규모</strong>
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>주로 남성 사용자가 많지만, 1040 여성 사용자도 다수</strong>
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>당일 배송(스마일 배송) 가능</strong>
+                                                    </li>
+                                                    <li class="mb-2">
+                                                        <i class="bi bi-check text-primary"></i>
+                                                        <strong>온라인 판매 초보들을 위한 다양한 판매자 교육 컨텐츠 제공</strong>
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                            <div class="d-grid"><a class="btn btn-outline-primary" href="https://sslmember2.gmarket.co.kr/Registration/MemberRegistrationSeller">사이트로 이동</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; For Farmers 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

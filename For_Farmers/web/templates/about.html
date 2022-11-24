@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>곡과수</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand">초보농부 나만 믿어!</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <form action="/"><input class="nav-link" type="submit" value="Home" name="action" /></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/about"><input class="nav-link" type="submit" value="About" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/market"><input class="nav-link" type="submit" value="Market" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/faq"><input class="nav-link" type="submit" value="FAQ" name="action"/></form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header-->
+            <header class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xxl-6">
+                            <div class="text-center my-5">
+                                <h1 class="fw-bolder mb-3">초보농부들의 환경에 맞는<br> 작물을 제시해드립니다!</h1>
+                                <p class="lead fw-normal text-muted mb-4">
+                                    예비 농부를 위한, 농부가 될 수 있는 누구나를 위한 큐레이션<br>
+                                    생육상태별 맞춤형 알고리즘 및 인공지능 기반 예측 및 분석정보<br>
+                                    작물 재배 팁과 가격 정보부터 도매시장과 E-Commerce 판매채널 제시까지
+                                </p>
+                                <a class="btn btn-primary btn-lg" href="#scroll-target">Our Mission</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- About section one-->
+            <section class="py-5 bg-light" id="scroll-target">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{url_for('static', filename='images/미션.png')}}" alt="미션 이미지" width="600" height="400"/></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder">스마트폰을 쥐고 귀농하는 2030을 위해</h2>
+                            <p class="lead fw-normal text-muted mb-0">
+                                귀농,귀촌 가구는 <b>2017년 약 34만 가구</b>에서 <br> 
+                                <b>2021년 37만 가구</b>로 꾸준히 증가하고 있습니다.<br>
+                                하지만 각자의 환경에 맞는 작물을 찾는데 시행착오가 발생하기 마련입니다.<br>
+                                저희는 <b>초보농부들이 시행착오를 줄여주기 위해</b>, <br>
+                                <b>재배하기 적합한 작물을 제시해 주는 서비스</b>를 제공합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About section two-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{url_for('static', filename='images/서비스.png')}}" alt="서비스 이미지" width="600" height="400" /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder">이런 서비스를 제공합니다!</h2>
+                            <p class="lead fw-normal text-muted mb-0">
+                                <b>약 1만개 이상의 우수농가 데이터</b>를 학습한 우리의 모델을 바탕으로,<br>
+                                이용자의 센서로부터 얻은 환경 정보에 알맞는 작물을 제시하고<br>
+                                해당작물의 정보를 제공합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Team members section-->
+            <section class="py-5 bg-light">
+                <div class="container px-5 my-5">
+                    <div class="text-center">
+                        <h2 class="fw-bolder">곡.과.수.</h2>
+                        <p class="lead fw-normal text-muted mb-5">Our Members</p>
+                    </div>
+                    <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                        <div class="col mb-5 mb-5 mb-xl-0">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="{{url_for('static', filename='images/김현섭.jpg')}}" alt="김현섭" />
+                                <h5 class="fw-bolder">김현섭</h5>
+                                <div class="fst-italic text-muted"><b>팀장</b> & 하드웨어</div>
+                            </div>
+                        </div>
+                        <div class="col mb-5 mb-5 mb-xl-0">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="{{url_for('static', filename='images/박성욱.jpg')}}" alt="박성욱" />
+                                <h5 class="fw-bolder">박성욱</h5>
+                                <div class="fst-italic text-muted">하드웨어 & 웹사이트 배포</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                        <div class="col mb-5 mb-5 mb-sm-0">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="{{url_for('static', filename='images/이태호.jpg')}}" alt="..." />
+                                <h5 class="fw-bolder">이태호</h5>
+                                <div class="fst-italic text-muted">모델링 & 웹 프레임워크</div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="{{url_for('static', filename='images/정서현.jpg')}}" alt="정서현" />
+                                <h5 class="fw-bolder">정서현</h5>
+                                <div class="fst-italic text-muted">웹사이트 풀스텍</div>
+                            </div>
+                        </div>
+                        <div class="col mb-5">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="{{url_for('static', filename='images/추동헌.jpg')}}" alt="..." />
+                                <h5 class="fw-bolder">추동헌</h5>
+                                <div class="fst-italic text-muted">모델링 & 실시간 연동 그래프</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; For Farmers 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
