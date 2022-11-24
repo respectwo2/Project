@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>파프리카</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+        <link href="{{url_for('static', filename='css/highcharts.css')}}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <script src="{{ url_for('static', filename='js/highcharts.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/highcharts-3d.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/exporting.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/export-data.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/accessibility.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/data.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/series-label.js')}}"></script>
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand">초보농부 나만 믿어!</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <form action="/"><input class="nav-link" type="submit" value="Home" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/about"><input class="nav-link" type="submit" value="About" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/market"><input class="nav-link" type="submit" value="Market" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/faq"><input class="nav-link" type="submit" value="FAQ" name="action"/></form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header-->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">파프리카</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">
+                                    현재 우리나라에서는 매운맛이 없는 Blocky type의 유럽종 수출용 착색단고추를 파프리카라 부르고 있습니다.<br>
+                                    매운맛이 없고 단맛이 있으며 비타민 A와 C가 풍부하고 다채로운 색을 표현할 수 있어 간식이나 이태리음식, 샐러드, 고기요리용으로 이용되고 있습니다.<br>
+                                    파프리카는 목본성 줄기를 갖는 저목형이며 줄기가 비교적 약한 편이므로 과실의 수확기에 도달하였을 때에는 무게에 의하여 줄기가 부러지기 쉬운 경향이 있기 때문에 작물을 지탱해 줄 수 있는 지지시스템이 필요합니다.<br>
+                                </p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="{{ url_for('static', filename='images/paprika-removebg.jpg')}}" alt="..." /></div>
+                    </div>
+                </div>
+            </header>
+            <!-- Features section-->
+            <section class="py-5" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">파프리카 재배 Tip!</h2></div>
+                        <div class="col-lg-8">
+                            <div class="row gx-5 row-cols-1 row-cols-md-2">
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                                    <h2 class="h5">출하시기</h2>
+                                    <p class="mb-0">겨울재배 : 7월중 파종하여 8월중순~9월상순 사이 정식한 후 11월 상순이 지나고 수확합니다.<br>
+                                    여름재배 : 2월중순~3월하순 사이 파종하여 3월하순~4월중순 사이 정식한 후 6월 상순이 지나고 수확합니다.</p>
+                                </div>
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                    <h2 class="h5">재배환경</h2>
+                                    <p class="mb-0">발아적온 24~25℃ / 육묘적온 22~25℃ <br> 생육적온 22~25℃ <br> 평균온도 19~22℃ / 저장적온 10~12℃</p>
+                                </div>
+                                <div class="col mb-5 mb-md-0 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                    <h2 class="h5">토양산도</h2>
+                                    <p class="mb-0">토양의 산도를 pH 7.5~8.0 범위에서 생육 시 생산성이 더욱 뛰어납니다.</p>
+                                </div>
+                                <div class="col h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                                    <h2 class="h5">재배적 특성</h2>
+                                    <p class="mb-0">잎은 난형이며 엽병의 길이는 0.5~2.5cm 입니다.<br>
+                                        화관은 8~15mm, 수술은 5~6개, 자방은 2~4개실 입니다.<br>
+                                        각각의 분지점에서 꽃눈이 발육되며 1번 꽃은 8~10마디에 착생, 양측에 영양아가 발생합니다.
+                                    </p>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 병충해 section-->
+            <div class="py-5 bg-light">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-8 col-xl-6">
+                            <div class="text-center">
+                                <h2 class="fw-bolder">병충해와 방제</h2>
+                                <p class="lead fw-normal text-muted mb-5">파프리카의 병충해와 이를 위한 방제 대책은?</p>
+                                <p class="fst-italic">이미지 클릭 시 방제 방법을 알려주는 영상을 보실 수 있습니다!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{url_for('static', filename='images/pa흰가루병.jpg')}}" height="300">
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">병해</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="http://www.nongsaro.go.kr/portal/ps/psb/psbo/vodPlay.ps?menuId=PS00069&mvpNo=573&shareAt=Y"><h5 class="card-title mb-3">흰가루병 증상</h5></a>
+                                    <p class="card-text mb-0">흰가루병은 잎 표면에 밀가루를 뿌린 것 같은 증상이 나타나다가 병이 진전되면 점차 황색으로 변하면서 잎이 떨어집니다. <br>
+                                        병원균은 병든 포기에서 월동하고 밤낮의 기온 차가 심한 봄과 가을에 많이 발생합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{url_for('static', filename='images/pa시들음병.jfif')}}" height="300">
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">병해</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="http://www.nongsaro.go.kr/portal/ps/psb/psbo/vodPlay.ps?menuId=PS00069&mvpNo=573&shareAt=Y"><h5 class="card-title mb-3">시들음병 증상</h5></a>
+                                    <p class="card-text mb-0">시들음병은 아랫잎에서부터 시드는 증상을 보이다가 병이 심해지면 포기 전체가 말라 죽게 됩니다.<br>
+                                        또한, 뿌리는 갈색으로 변하는데 부패한 뿌리를 절단해 보면 줄기 내부의 색깔이 누렇게 되어 있고 그 안에 까만 점 같은 것들이 박혀있습니다.<br>
+                                        병원균은 토양으로 전염되는데 주로 뿌리의 상처 부위를 통해 침입해서 식물을 시들게 합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{url_for('static', filename='images/pa바이러스.jfif')}}" height="300">
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">바이러스</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="http://www.nongsaro.go.kr/portal/ps/psb/psbo/vodPlay.ps?menuId=PS00069&mvpNo=573&shareAt=Y"><h5 class="card-title mb-3">바이러스 증상</h5></a>
+                                    <p class="card-text mb-0">바이러스는 종류에 따라 병징의 차이가 있습니다. 잎에 모자이크 증상이 나타나고, 새로 나온 잎이 황색으로 변하기도 하며, 줄기와 잎자루 등에는 갈색으로 길게 반점이 나타납니다.<br>
+                                        또한, 열매는 얼룩 줄무늬가 생기거나 기형과가 되며, 심하면 잎과 꽃눈이 떨어지고 잔가지가 죽기도 합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{url_for('static', filename='images/pa총채벌레.jfif')}}" height="350px">
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">해충</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="http://www.nongsaro.go.kr/portal/ps/psb/psbo/vodPlay.ps?menuId=PS00069&mvpNo=573&shareAt=Y"><h5 class="card-title mb-3">꽃노랑총채벌레 특징</h5></a>
+                                    <p class="card-text mb-0">
+                                        꽃노랑총채벌레는 주로 어린잎이나 생장점 부근에서 피해가 먼저 나타나는데 잎이 뒤틀리거나 구부러져 기형이 되고, 심하면 포기 전체의 생육이 위축됩니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <div class="card h-100 shadow border-0">
+                                    <img class="card-img-top" src="{{url_for('static', filename='images/pa진딧물.jfif')}}" height="350px">
+                                    <div class="card-body p-4">
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">해충</div>
+                                        <a class="text-decoration-none link-dark stretched-link" href="http://www.nongsaro.go.kr/portal/ps/psb/psbo/vodPlay.ps?menuId=PS00069&mvpNo=573&shareAt=Y"><h5 class="card-title mb-3">복숭아혹진딧물 특징</h5></a>
+                                        <p class="card-text mb-0">복숭아혹진딧물은 어린싹이나 잎 뒷면에서 즙액을 빨아 먹기 때문에 잎이 위축되거나 기형이 되고 생육이 정지됩니다.<br>
+                                            또한, 진딧물이 배설한 감로가 잎과 열매에 붙으면 그을음병이 발생해서 품질이 떨어집니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0">
+                                <img class="card-img-top" src="{{url_for('static', filename='images/담배나방.jpg')}}" height="350px">
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">해충</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="http://www.nongsaro.go.kr/portal/ps/psb/psbo/vodPlay.ps?menuId=PS00069&mvpNo=573&shareAt=Y"><h5 class="card-title mb-3">담배나방 특징</h5></a>
+                                    <p class="card-text mb-0">담배나방은 유충이 잎을 갉아 먹거나 열매 안으로 들어가는데, 유충이 먹어 들어간 열매는 낙과하게 됩니다.<br>
+                                        또한, 유충이 계속 다른 열매로 옮겨가면서 가해하기 때문에 적기에 방제하지 않으면 피해가 커지므로 주의해야합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 그래프 -->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10 col-xl-7">
+                            <div class="text-center">
+                                <div class="text-center"><h2 class="fw-bolder">가격 정보와 소비 트렌드</h2></div>
+                                <p><br></p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <figure class="highcharts-figure">
+                                        <div id="container1"></div>
+                                    </figure>
+                                    <script src="{{url_for('static', filename='js/paprikaPrice.js')}}"></script>
+                                </div>
+                                <p><br></p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <figure class="highcharts-figure">
+                                        <div id="container2"></div>
+                                    </figure>
+                                    <script>
+                                        Highcharts.addEvent(Highcharts.Point, 'click', function () {
+                                            if (this.series.options.className.indexOf('popup-on-click') !== -1) {
+                                            const chart = this.series.chart;
+                                            const date = Highcharts.dateFormat('%A, %b %e, %Y', this.x);
+                                            const text = `<b>${date}</b><br/>${this.y} ${this.series.name}`;
+
+                                            const anchorX = this.plotX + this.series.xAxis.pos;
+                                            const anchorY = this.plotY + this.series.yAxis.pos;
+                                            const align = anchorX < chart.chartWidth - 200 ? 'left' : 'right';
+                                            const x = align === 'left' ? anchorX + 10 : anchorX - 10;
+                                            const y = anchorY - 30;
+                                            if (!chart.sticky) {
+                                                chart.sticky = chart.renderer
+                                                    .label(text, x, y, 'callout',  anchorX, anchorY)
+                                                    .attr({
+                                                        align,
+                                                        fill: 'rgba(0, 0, 0, 0.75)',
+                                                        padding: 10,
+                                                        zIndex: 7 // Above series, below tooltip
+                                                    })
+                                                    .css({
+                                                        color: 'white'
+                                                    })
+                                                    .on('click', function () {
+                                                        chart.sticky = chart.sticky.destroy();
+                                                    })
+                                                    .add();
+                                            } else {
+                                                chart.sticky
+                                                    .attr({ align, text })
+                                                    .animate({ anchorX, anchorY, x, y }, { duration: 250 });
+                                            }
+                                        }
+                                        });
+
+                                        Highcharts.chart('container2', {
+
+                                            chart: {
+                                                scrollablePlotArea: {
+                                                    minWidth: 700
+                                                }
+                                            },
+
+                                            data: {
+                                                csvURL: "{{url_for('static', filename='csv/파프리카 소비트렌드.csv')}}",
+                                                beforeParse: function (csv) {
+                                                    return csv.replace(/\n\n/g, '\n');
+                                                }
+                                            },
+
+                                            title: {
+                                                text: '2017년 - 2019년 소비트렌드'
+                                            },
+                                            subtitle:{
+                                                text: '출처: 농사로'
+                                            },
+                                            xAxis: {
+                                                tickInterval: 7 * 30 * 3600 * 1000, // one week
+                                                tickWidth: 0,
+                                                gridLineWidth: 1,
+                                                labels: {
+                                                    align: 'left',
+                                                    x: 3,
+                                                    y: -3
+                                                }
+                                            },
+
+                                            yAxis: [{ // left y axis
+                                                title: {
+                                                    text: null
+                                                },
+                                                labels: {
+                                                    align: 'left',
+                                                    x: 3,
+                                                    y: 16,
+                                                    format: '{value:.,0f}'
+                                                },
+                                                showFirstLabel: false
+                                            }, { // right y axis
+                                                    linkedTo: 0,
+                                                    gridLineWidth: 0,
+                                                    opposite: true,
+                                                    title: {
+                                                        text: null
+                                                    },
+                                                    labels: {
+                                                        align: 'right',
+                                                        x: -3,
+                                                        y: 16,
+                                                        format: '{value:.,0f}'
+                                                    },
+                                                    showFirstLabel: false
+                                            }],
+
+                                            legend: {
+                                                align: 'left',
+                                                verticalAlign: 'top',
+                                                borderWidth: 0
+                                            },
+
+                                            tooltip: {
+                                                shared: true,
+                                                crosshairs: true
+                                            },
+
+                                            plotOptions: {
+                                                series: {
+                                                    cursor: 'pointer',
+                                                    className: 'popup-on-click',
+                                                    marker: {
+                                                        lineWidth: 1
+                                                    }
+                                                }
+                                            },
+
+                                            series: [{
+                                                name: 'All sessions',
+                                                lineWidth: 4,
+                                                marker: {
+                                                    radius: 4
+                                                }
+                                            }, {
+                                                name: 'New users'
+                                            }]
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; For Farmers 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+    </body>
+</html>

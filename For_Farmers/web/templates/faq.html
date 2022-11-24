@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>곡과수 FAQ</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" >초보농부 나만 믿어!</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <form action="/"><input class="nav-link" type="submit" value="Home" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/about"><input class="nav-link" type="submit" value="About" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/market"><input class="nav-link" type="submit" value="Market" name="action"/></form>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/faq"><input class="nav-link" type="submit" value="FAQ" name="action"/></form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page Content-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">우리의 서비스는 이렇게 구성되어 있습니다!</h1>
+                        <p class="lead fw-normal text-muted mb-0">하드웨어, 모델링, 웹사이트 각 파트가 어떻게 구성되어있는지 알려드립니다.</p>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-xl-8">
+                            <!-- FAQ 모델링 -->
+                            <h2 class="fw-bolder mb-3">Big-Data Modeling</h2>
+                            <div class="accordion mb-5" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><strong>어떤 데이터를 기반으로 했나요?</strong></button></h3>
+                                    <div class="accordion-collapse collapse show" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>각 작물별 약 1만개의 농가 환경 데이터</strong><br>
+                                            딸기, 토마토, 그리고 파프리카의 각각 전국 농가들에서 수집한 공공데이터를 사용했습니다.<br>
+                                            저희가 구현하는 하드웨어 센서 정보에 맞는 feature들 만으로 정보를 간추리고, csv파일로 통합한 후 전처리를 진행하였습니다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><strong>어떤 알고리즘들으로 테스트를 진행했나요?</strong></button></h3>
+                                    <div class="accordion-collapse collapse" id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>7가지 모델로 머신러닝 학습</strong><br>
+                                            데이터 전처리를 완료 한 후 train_split과 test_split의 score를 구하고, 모델의 정확도를 측정하여 정확도가 가장 높은 모델을 선정하였습니다.<br>
+                                            모델은 KNeighborsClassifier, LogisticRegression을 통한 다중분류, DecisionTreeClassifier, RandomForestClassifier, 앙상블(KNN+DecisionTree) 모델,
+                                            Xgboost, LGBMClassifier을 사용하였습니다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><strong>작물을 추천해주는 알고리즘으로 선정된 모델은 무엇인가요?</strong></button></h3>
+                                    <div class="accordion-collapse collapse" id="collapseThree" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>랜덤포레스트 모델로 확정</strong><br>
+                                            7가지 모델로 모델링을 한 결과 랜덤포레스트의 정확도가 약 98%(0.98)로 가장 높게 나왔습니다.<br>
+                                            랜덤포레스트 내부 각각의 결정 트리의 깊이가 너무 깊어 오버핏팅이라는 문제점이 발생했습니다.<br>
+                                            각 결정트리의 깊이를 무한대에서 21으로 수정한 결과, 정확도는 0.01상승하였으며, 해당 설정을 최종 모델으로 선정했습니다.<br>
+                                            최종적으로 <b>99.01%</b>로 높은 확률로 환경 정보에 적합한 작물을 제시해줍니다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- contact info -->
+                        <div class="col-xl-4">
+                            <div class="card border-0 bg-light mt-xl-5">
+                                <div class="card-body p-4 py-lg-5">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <div class="text-center">
+                                            <div class="h6 fw-bolder">더 궁금한 점이 있으신가요?</div>
+                                            <p class="text-muted mb-4">
+                                                메일을 보내주시면 답변해드립니다!
+                                                <br />
+                                                <a href="#!">superfreak.co.kr@gmail.com</a>
+                                            </p>
+                                            <div class="h6 fw-bolder">Follow us</div>
+                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-twitter"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-facebook"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://www.linkedin.com/in/lily-jeong-6a3a33193/"><i class="bi-linkedin"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-youtube"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8">
+                        <!-- FAQ 하드웨어 -->
+                        <h2 class="fw-bolder mb-3">Hardware</h2>
+                        <div class="accordion mb-5 mb-xl-0" id="accordionExample2">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUn" aria-expanded="true" aria-controls="collapseUn"><strong>센서들은 어떤 것이 있나요? 통신은 어떻게 되나요?</strong></button></h3>
+                                <div class="accordion-collapse collapse show" id="collapseUn" aria-labelledby="headingOne" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                        <strong>온습도, 자외선, 토양수분, 이산화탄소 센서입니다. </strong><br>
+                                        모델명은 온습도 센서(DHT11), 자외선 센서(GUVA-S12D), 토양수분 센서(C27), 이산화탄소 센서(MH-Z19B)이며 <br>
+                                        Arduino(Slave)와 NodeMCU(Master) 간의 I2C통신을 하여 센서값을 읽고 Wifi모듈(esp8266)을 통해 해당 데이터를 DB로 저장합니다.<br>
+                                        DB에 저장된 데이터를 Grafana 통해 센서값을 그래프로 시각화하고 우리의 학습된 모델을 통과하여 작물을 제시합니다. 
+                                        <!-- <code>.accordion-body</code> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeux" aria-expanded="false" aria-controls="collapseDeux"><strong>센서의 감도(Sensitivity)가 무엇인가요? 감도가 높아서 온도 편차가 심하다고 하는데...</strong></button></h3>
+                                <div class="accordion-collapse collapse" id="collapseDeux" aria-labelledby="headingTwo" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                        <div>
+                                            <strong> 글리세린이라는 물질을 통해 감도를 낮출수 있습니다. </strong><br>
+                                            센서의 감도는 쉽게 말해 입력 변화에 대한 응답의 출력 변화의 비율이라고 할 수 있습니다. <br>
+                                            일반적으로 센서의 감도가 높다고 하면 측정 되어지는 온도의 값이 정확도가 높다고 할 수 있습니다. 
+                                            대신 감도가 높은 경우에는 환경적인 영향이 비교적 커서 요구 되어지는 온도보다 온도의 편차가 크게 나타날 수 있습니다. <br>
+                                            감도를 낮추는 방법의 하나로 하기 사진처럼 <span style="color: orangered;"><b>글리세린</b></span>이라는 물질을 통해 감도를 낮출수 있습니다. <br>
+                                            온도 편차가 심하시다고 생각되시면 하기 사진처럼 사용해 보시길 바랍니다.
+                                        </div>
+                                        <div class="col-lg-6"><img src="{{url_for('static', filename='images/감도.png')}}" height="300"/></div>
+                                        <!-- <code>.accordion-body</code> -->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTrois" aria-expanded="false" aria-controls="collapseTrois"><strong>회로도는 어떻게 구성되나요?</strong></button></h3>
+                                <div class="accordion-collapse collapse" id="collapseTrois" aria-labelledby="headingThree" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                        <div class="col-lg-6"><img src="{{url_for('static', filename='images/회로도.png')}}" height="550" width="700"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-xl-8">
+                            <!-- FAQ 웹 -->
+                            <h2 class="fw-bolder mb-3">Full-Stack Development</h2>
+                            <div class="accordion mb-5" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUno" aria-expanded="true" aria-controls="collapseUno"><strong>백엔드는 어떻게 구성되어 있나요?</strong></button></h3>
+                                    <div class="accordion-collapse collapse show" id="collapseUno" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>Python, Flask & InfluxDB</strong><br>
+                                            파이썬으로 랜덤 포레스트 알고리즘을 함수화하였습니다.<br>
+                                            하드웨어 센서로 수집한 정보는 클라우드 DB인 InfluxDB에 저장됩니다. 이 중 최근 5분 평균을 계산하여 불러오는 쿼리문을 함수화했습니다.<br>
+                                            이 두 함수를 자동으로 실행하여 Flask를 통해, 머신러닝의 결과가 웹 화면으로 표시됩니다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDos" aria-expanded="false" aria-controls="collapseDos"><strong>웹사이트를 구현할 때 어떤 것들이 사용되었나요?</strong></button></h3>
+                                    <div class="accordion-collapse collapse" id="collapseDos" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <strong>Javascript, Bootstrap, Highcharts, Grafana</strong><br>
+                                            CSS 프레임워크로 "Bootstrap"을 활용했습니다.<br>
+                                            Highcharts라는 Javascript 기반의 동적 그래프를 삽입하여 효과적으로 데이터 시각화를 해냈습니다.<br>
+                                            메인페이지에서는 Grafana를 통해서 센서 데이터를 실시간 시각화한 화면을 확인하실 수 있습니다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; For Farmers 2022</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
